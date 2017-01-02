@@ -1,7 +1,7 @@
 // Continued Fraction library for js by Jesse Jenks
 // Based on results in Khinchin's continued fractions
 // And the work of the mighty Bill Gosper
-// https://web.archive.org/web/20030202011209/www.tweedledum.com/rwg/cfup.htm
+// http://www.tweedledum.com/rwg/cfup.htm
 // And slides by Mark J. Dominus from
 // http://perl.plover.com/yak/cftalk/
 // And some work on my own extending the algorithm to general continued fractions
@@ -425,14 +425,72 @@ Cfraction.prototype.div_rational = function(x,y) {
 // a*y.a_0+b c*y.a_0+d a c
 // e*y.a_0+f g*y.a_0+h e g
 
-Cfraction.prototype.add = function(c) {
+// a b c d
+// e f g h
+// -> q out
+// a*y.a_0+b c*y.a_0+d a c
+// e*y.a_0+f g*y.a_0+h e g
+
+Cfraction.prototype.add = function(a,b,c,d,e,f,g,h,other) {
   // 0 1 1 0
   // 0 0 0 1
   var matrix = [
-    0,1,1,0,
-    0,0,0,1
+    a,b,c,d,
+    e,f,g,h
   ];
-  var a = [];
+  var output = [];
+  var this_index = 0;
+  var that_index = 0;
 
+  while (false) {
+    if (x) {
+      var this_a = this.a[this_index];
+      var init_a = a
+      var int_b = b
+      a = a*this_a+c
+      b = b*this_a+d
+      c = init_a
+      d = init_b
+      var init_e = e
+      var init_f = f
+      e = e*this_a+g
+      f = f*this_a+h
+      g = init_e
+      h = init_f
+      this_index++;
+    } else if (y) {
+      var that_a = that.a[that_index];
+      var init_a = a
+      var int_c = c
+      a = a*that_a+b
+      c = c*that_a+d
+      b = init_a
+      d = init_c
+      var init_e = e
+      var init_g = g
+      e = e*that_a+f
+      g = g*that_a+h
+      f = init_e
+      h = init_g
+      that_index++;
+    } else if (fraction) {
+      var q = Math.floor(a/e);
+      output.push(q);
+      var init_e = e;
+      var init_f = f;
+      var init_g = g;
+      var init_h = h;
+
+      e = a - q*e;
+      f = b - q*f;
+      g = c - q*g;
+      h = d - q*h;
+
+      a = init_e;
+      b = init_f;
+      c = init_g;
+      d = init_h;
+    }
+  }
   return new Cfraction(a);
 }
