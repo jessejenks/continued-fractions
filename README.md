@@ -1,5 +1,5 @@
 # Continued Fractions
-Continued fractions have a interesting role in the history of mathematics. First described in the 1600s, they used to be a commonly used tool from Galileo useing them to compute gear ratios to Euler using them to prove that *e* is irrational. But in the push for computational techniques in the past 100 years, they fell out of fashion. But the main difficulty is summarized by a quote from Khinchin's *Continued Fractions* included in [Bill Gosper's unpublished paper](http://www.tweedledum.com/rwg/cfup.htm):
+Continued fractions have a interesting role in the history of mathematics. First described in the 1600s, they used to be a commonly used tool from Galileo useing them to compute gear ratios to Euler using them to prove that *e* is irrational. But in the push for computational techniques in the past 100 years, they fell out of fashion. But the main difficulty is summarized by a quote from Khinchin's *Continued Fractions*:
 
 >There is, however, another and yet more significant practical demand that the apparatus of continued fractions does not satisfy at all.  Knowing the representations of several numbers, we would like to be able, with relative ease, to find the representations of the simpler functions of these numbers (especially their sum and product).
 
@@ -9,7 +9,7 @@ Continued fractions have a interesting role in the history of mathematics. First
 
 >   --A. YA. Khinchin, 1935
 
-In that paper by Bill Gosper however, he essentially solved this problem. Although unpublished, Gosper's continued fraction algorithm
+In [Bill Gosper's unpublished paper](http://www.tweedledum.com/rwg/cfup.htm), he essentially solved this problem.
 
 # Cfraction
 A set of libraries for continued fraction arithmetic.
@@ -63,7 +63,7 @@ Constants
 ~~~ javascript
 var pi = Cfraction.PI;
 ~~~
-returns the first 80 or so terms for the Euler-Mascheroni constant gamma
+returns the first 80 or so terms for pi
 
 ~~~ javascript
 var gamma = Cfraction.GAMMA;
